@@ -1,0 +1,21 @@
+::ng-deep [slot="container"] {
+  height: 100%;
+  background-color: #fafafa;
+}
+
+@media(max-width: 768px) {
+  ::ng-deep [slot="footer"] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@media(min-width: 769px) {
+  ::ng-deep [slot="footer"] {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

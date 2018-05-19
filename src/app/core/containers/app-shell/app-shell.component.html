@@ -1,0 +1,10 @@
+<ci-layout>
+  <div slot="container">
+    <router-outlet></router-outlet>
+  </div>
+  <ci-actionbar
+    viewMode="{{viewMode$ | async}}"
+    (captureImage)="handleCaptureImage($event)"
+    (uploadImage)="handleUploadImage($event)"
+    slot="footer"></ci-actionbar>
+</ci-layout>

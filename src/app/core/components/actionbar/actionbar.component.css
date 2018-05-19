@@ -1,0 +1,160 @@
+:host {
+  --bar-height: 100px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#container {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  :host {
+    width: 100%;
+    height: var(--bar-height);
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  :host {
+    width: var(--bar-height);
+    height: 100%;
+  }
+
+  #container {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 769px) {
+  :host {
+    width: 500px;
+    height: var(--bar-height);
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }
+}
+
+#main-button-container {
+  width: var(--bar-height);
+  height: var(--bar-height);
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#main-button-ring {
+  width: 75%;
+  height: 75%;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#camera, #gallery {
+  position: absolute;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  #camera {
+    transform: translateX(-200%);
+  }
+
+  #gallery {
+    transform: translateX(200%);
+  }
+}
+
+@media (min-width: 769px) {
+  #camera {
+    transform: translateX(-200%);
+  }
+
+  #gallery {
+    transform: translateX(200%);
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  #camera {
+    transform: translateY(200%);
+  }
+
+  #gallery {
+    transform: translateY(-200%);
+  }
+}
+
+button[mat-icon-button] mat-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+  line-height: 50px;
+}
+
+button.switch-link {
+  width: 50px;
+  height: 50px;
+  color: white;
+  will-change: transform;
+  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+button.switch-link.selected {
+  opacity: 0;
+  pointer-events: none;
+}
+
+button.action-button {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  transform: scale(0.001);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
+}
+
+button.action-button.selected {
+  background-color: white;
+  color: #999;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  button#upload-button.selected {
+    transform: translateX(-200%) scale(1.4);
+  }
+
+  button#capture-button.selected {
+    transform: translateX(200%) scale(1.4);
+  }
+}
+
+@media (min-width: 769px) {
+  button#upload-button.selected {
+    transform: translateX(-200%) scale(1.4);
+  }
+
+  button#capture-button.selected {
+    transform: translateX(200%) scale(1.4);
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  button#upload-button.selected {
+    transform: translateY(200%) scale(1.4);
+  }
+
+  button#capture-button.selected {
+    transform: translateY(-200%) scale(1.4);
+  }
+}

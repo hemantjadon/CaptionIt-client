@@ -1,0 +1,31 @@
+<div id="container">
+
+  <div id="main-button-container">
+    <div id="main-button-ring">
+    </div>
+  </div>
+
+  <div id="camera">
+    <button routerLink="/camera" id="camera-link" mat-icon-button
+      class="switch-link" [class.selected]="viewMode === 'camera'">
+      <mat-icon>camera</mat-icon>
+    </button>
+    <button id="capture-button" mat-icon-button
+      class="action-button" [class.selected]="viewMode === 'camera'"
+      (click)="sendCaptureImageEvent()">
+      <mat-icon>camera_alt</mat-icon>
+    </button>
+  </div>
+
+  <div id="gallery">
+    <button routerLink="/gallery" id="gallery-link" mat-icon-button
+      class="switch-link" [class.selected]="viewMode === 'gallery'">
+      <mat-icon>collections</mat-icon>
+    </button>
+    <button id="upload-button" mat-icon-button
+      class="action-button" [class.selected]="viewMode === 'gallery'"
+      (click)="sendUploadImageEvent()">
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+  </div>
+</div>
