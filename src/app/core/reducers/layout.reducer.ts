@@ -1,5 +1,5 @@
-import { LayoutActionTypes, LayoutActions } from '../actions/layout.actions';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { LayoutActionTypes, LayoutActions } from '../actions/layout.actions';
 
 export type ViewMode = 'gallery' | 'camera' | null;
 
@@ -8,7 +8,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  viewMode: null
+  viewMode: null,
 };
 
 export function reducer(
@@ -17,15 +17,15 @@ export function reducer(
 ): State {
   switch (action.type) {
     case LayoutActionTypes.SWITCH_TO_GALLERY: {
-      return {
+      return Object.assign({}, state, {
         viewMode: 'gallery'
-      };
+      });
     }
 
     case LayoutActionTypes.SWITCH_TO_CAMERA: {
-      return {
+      return Object.assign({}, state, {
         viewMode: 'camera'
-      };
+      });
     }
 
     default: {
@@ -34,7 +34,7 @@ export function reducer(
   }
 }
 
-export const getLayoutState = createFeatureSelector<State>('layout');
+export const getLayoutState = createFeatureSelector<State>('core/layout');
 
 export const selectViewMode = (state: State) => state.viewMode;
 

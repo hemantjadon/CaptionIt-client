@@ -158,3 +158,22 @@ button.action-button.selected {
     transform: translateY(-200%) scale(1.4);
   }
 }
+
+button.confirm-button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%) scale(1.4);
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: #999;
+}
+
+button.discard-button {
+  position: absolute;
+  left: 65%;
+  width: 50px;
+  height: 50px;
+  color: white;
+}
+

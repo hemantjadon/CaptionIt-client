@@ -1,31 +1,57 @@
 <div id="container">
-
   <div id="main-button-container">
     <div id="main-button-ring">
     </div>
   </div>
 
-  <div id="camera">
-    <button routerLink="/camera" id="camera-link" mat-icon-button
-      class="switch-link" [class.selected]="viewMode === 'camera'">
-      <mat-icon>camera</mat-icon>
-    </button>
-    <button id="capture-button" mat-icon-button
-      class="action-button" [class.selected]="viewMode === 'camera'"
-      (click)="sendCaptureImageEvent()">
-      <mat-icon>camera_alt</mat-icon>
-    </button>
-  </div>
+  <ng-container *ngIf="!confirmCapture">
+    <div id="camera">
+      <button routerLink="/camera" id="camera-link" mat-icon-button
+        class="switch-link"
+        [class.selected]="viewMode === 'camera'"
+        [attr.tabindex]="viewMode === 'camera' ? '-1' : null">
+        <mat-icon>camera</mat-icon>
+      </button>
+      <button id="capture-button" mat-icon-button
+        class="action-button"
+        [disabled]="disableCamera"
+        [class.selected]="viewMode === 'camera'"
+        [attr.tabindex]="viewMode === 'gallery' ? '-1' : null"
+        (click)="sendCaptureImageEvent()">
+        <mat-icon>camera_alt</mat-icon>
+      </button>
+    </div>
 
-  <div id="gallery">
-    <button routerLink="/gallery" id="gallery-link" mat-icon-button
-      class="switch-link" [class.selected]="viewMode === 'gallery'">
-      <mat-icon>collections</mat-icon>
+    <div id="gallery">
+      <button routerLink="/gallery" id="gallery-link" mat-icon-button
+        class="switch-link"
+        [class.selected]="viewMode === 'gallery'"
+        [attr.tabindex]="viewMode === 'gallery' ? '-1' : null">
+        <mat-icon>collections</mat-icon>
+      </button>
+      <button id="upload-button" mat-icon-button
+        class="action-button"
+        [disabled]="disableCamera"
+        [class.selected]="viewMode === 'gallery'"
+        [attr.tabindex]="viewMode === 'camera' ? '-1' : null"
+        (click)="sendUploadImageEvent()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="confirmCapture">
+    <button mat-icon-button
+      class="confirm-button"
+      [attr.tabindex]="confirmCapture ? 0 : -1"
+      (click)="sendSaveImageEvent()">
+      <mat-icon>done</mat-icon>
     </button>
-    <button id="upload-button" mat-icon-button
-      class="action-button" [class.selected]="viewMode === 'gallery'"
-      (click)="sendUploadImageEvent()">
-      <mat-icon>arrow_upward</mat-icon>
+    <button mat-icon-button
+      class="discard-button"
+      [attr.tabindex]="confirmCapture ? 0 : -1"
+      (click)="sendDiscardImageEvent()">
+      <mat-icon>cancel</mat-icon>
     </button>
-  </div>
+  </ng-container>
 </div>

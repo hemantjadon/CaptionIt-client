@@ -1,0 +1,27 @@
+<div id="container">
+  <ci-canvas-image
+    [srcBlob]="image.image"
+    [width]="700"
+    [height]="500"
+    [cover]="true"></ci-canvas-image>
+
+  <div id="info">
+    <div id="content">
+      <div id="caption"><i>"Lorem Ipsum Dolor Sit Amet Fo Bar"</i></div>
+      <div id="timestamp">{{ image.timestamp | date }}</div>
+    </div>
+
+    <div id="type-badge">
+      <ng-container *ngIf="image.type === 'uploaded'">
+        <mat-icon>cloud_queue</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="image.type === 'captured'">
+        <mat-icon>camera_alt</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="image.type === 'loaded'">
+        <mat-icon>link</mat-icon>
+      </ng-container>
+    </div>
+  </div>
+</div>
+

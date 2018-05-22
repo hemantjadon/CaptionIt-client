@@ -13,6 +13,7 @@ import { CustomRouterStateSerializer } from './shared/utils';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './reducers';
+import { GalleryModule } from './gallery/gallery.module';
 
 @NgModule({
   imports: [

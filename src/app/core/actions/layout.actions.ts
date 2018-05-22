@@ -13,4 +13,6 @@ export class SwitchToCameraView implements Action {
   readonly type = LayoutActionTypes.SWITCH_TO_CAMERA;
 }
 
-export type LayoutActions = SwitchToGalleryView | SwitchToCameraView;
+export type LayoutActions
+  = SwitchToGalleryView
+  | SwitchToCameraView;

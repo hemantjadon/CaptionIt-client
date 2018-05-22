@@ -1,0 +1,35 @@
+#container {
+  margin-bottom: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
+  border-radius: 4px;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 70%;
+}
+
+#timestamp {
+  font-size: 0.8em;
+  color: grey;
+}
+
+#info {
+  height: 80px;
+  margin-top: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+mat-icon {
+  --icon-size: 35px;
+  font-size: var(--icon-size);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: gainsboro;
+}

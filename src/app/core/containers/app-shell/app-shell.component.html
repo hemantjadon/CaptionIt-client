@@ -1,10 +1,16 @@
+<input id="fileInput" type="file" accept="image/*" tabindex="-1"
+  (change)="fileChange($event)" #fileInput />
 <ci-layout>
   <div slot="container">
     <router-outlet></router-outlet>
   </div>
   <ci-actionbar
-    viewMode="{{viewMode$ | async}}"
+    [viewMode]="viewMode$ | async"
+    [disableCamera]="isCapturing$ | async"
+    [confirmCapture]="(captured$ | async).status"
     (captureImage)="handleCaptureImage($event)"
     (uploadImage)="handleUploadImage($event)"
+    (saveImage)="handleSaveImage($event)"
+    (discardImage)="handleDiscardImage($event)"
     slot="footer"></ci-actionbar>
 </ci-layout>
