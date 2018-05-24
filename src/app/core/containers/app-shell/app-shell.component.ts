@@ -20,6 +20,7 @@ export class AppShellComponent implements OnInit {
   viewMode$: Observable<fromLayout.ViewMode>;
   isCapturing$: Observable<boolean>;
   captured$: Observable<{ status: boolean, blob: Blob }>;
+  disableFurtherSave: boolean;
 
   @ViewChild('fileInput') fileInput: ElementRef;
 
@@ -57,10 +58,12 @@ export class AppShellComponent implements OnInit {
   }
 
   async handleSaveImage(event) {
+    this.disableFurtherSave = true;
     this.captured$.subscribe(async (captured) => {
       const serializedImage = await this.imgConvert.blobToSchema(captured.blob);
       this.store.dispatch(new idbImageActions.StoreImageData(serializedImage));
       this.store.dispatch(new cameraActions.CaptureImageSuccessAction());
+      this.disableFurtherSave = false;
     }).unsubscribe();
   }
 

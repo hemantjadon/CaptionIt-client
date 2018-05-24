@@ -1,4 +1,8 @@
 <div id="gallery-container">
+  <div id="mast">
+    <h1>Your Collection</h1>
+  </div>
+  <hr />
   <ng-container *ngFor="let image of images">
     <ci-gallery-card [image]="image"></ci-gallery-card>
   </ng-container>

@@ -43,6 +43,7 @@
   <ng-container *ngIf="confirmCapture">
     <button mat-icon-button
       class="confirm-button"
+      [disabled]="disableSave"
       [attr.tabindex]="confirmCapture ? 0 : -1"
       (click)="sendSaveImageEvent()">
       <mat-icon>done</mat-icon>

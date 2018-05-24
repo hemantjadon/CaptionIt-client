@@ -18,6 +18,7 @@ export class ActionbarComponent implements OnInit {
   @Input() viewMode: ViewMode;
   @Input() disableCamera = false;
   @Input() disableUpload = false;
+  @Input() disableSave = false;
   @Input() confirmCapture = false;
   @Output() captureImage: EventEmitter<void> = new EventEmitter();
   @Output() uploadImage: EventEmitter<void> = new EventEmitter();

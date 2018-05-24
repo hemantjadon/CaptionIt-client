@@ -24,7 +24,7 @@ export function reducer(
     }
 
     case IDBGalleryActionTypes.LOAD_GALLERY_DATA_SUCCESS: {
-      const images = action.images;
+      const images = action.images.reverse();
       return Object.assign({}, state, {
         loading: false,
         images

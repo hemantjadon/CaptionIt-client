@@ -1,13 +1,11 @@
 <div id="container">
-  <ci-canvas-image
-    [srcBlob]="image.image"
-    [width]="700"
-    [height]="500"
-    [cover]="true"></ci-canvas-image>
+  <img id="card-image"
+    [src]="image.image | blobToUrl | safe: 'url'"
+    [alt]="image.caption">
 
   <div id="info">
     <div id="content">
-      <div id="caption"><i>"Lorem Ipsum Dolor Sit Amet Fo Bar"</i></div>
+      <div id="caption"><i>"{{ image.caption | sentenceCase }}."</i></div>
       <div id="timestamp">{{ image.timestamp | date }}</div>
     </div>
 

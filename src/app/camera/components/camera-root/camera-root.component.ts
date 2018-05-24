@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Store, select } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 
@@ -29,10 +30,12 @@ export class CameraRootComponent implements OnInit, OnDestroy {
   capturedBlob: Blob;
 
   constructor(
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('CaptionIt | Camera');
     this.doCapture$ = this.store.pipe(select(fromCamera.getDoCapture));
     this.videoEl = this.videoRef.nativeElement;
 

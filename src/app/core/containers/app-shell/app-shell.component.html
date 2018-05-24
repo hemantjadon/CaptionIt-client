@@ -8,6 +8,7 @@
     [viewMode]="viewMode$ | async"
     [disableCamera]="isCapturing$ | async"
     [confirmCapture]="(captured$ | async).status"
+    [disableSave]="disableFurtherSave"
     (captureImage)="handleCaptureImage($event)"
     (uploadImage)="handleUploadImage($event)"
     (saveImage)="handleSaveImage($event)"
