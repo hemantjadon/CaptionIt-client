@@ -1,6 +1,7 @@
 #gallery-container {
   width: 748px;
   margin: 0px auto;
+  padding-bottom: 200px;
 }
 
 @media(max-width: 768px) {
@@ -11,6 +12,9 @@
 
 #mast {
   padding: 20px 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #mast h1 {

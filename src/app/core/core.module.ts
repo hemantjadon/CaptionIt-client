@@ -23,6 +23,7 @@ import { RouteNavigationEffects } from './effects/route-navigation.effects';
 import { IDBImageEffects } from './effects/idb-image.effects';
 import * as fromLayout from './reducers/layout.reducer';
 import * as fromCamera from './reducers/camera.reducer';
+import * as fromApi from './reducers/api.reducer';
 
 const EFFECTS = [
   RouteNavigationEffects,
@@ -39,6 +40,7 @@ const EFFECTS = [
 
     StoreModule.forFeature('core/layout', fromLayout.reducer),
     StoreModule.forFeature('core/camera', fromCamera.reducer),
+    StoreModule.forFeature('core/api', fromApi.reducer),
     EffectsModule.forFeature(EFFECTS),
   ],
   declarations: [
